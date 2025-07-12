@@ -3,8 +3,7 @@ import { Image, Text, View } from "react-native";
 import CustomButton from "./CustomButton";
 
 const OAuth = () => {
-
-  const handleGoogleSignIn = async() => {};
+  const handleGoogleSignIn = async () => {};
   return (
     <View>
       <View className="flex flex-row justify-center items-center mt-4 gap-x-3">
@@ -28,7 +27,7 @@ const OAuth = () => {
         onPress={handleGoogleSignIn}
       />
     </View>
-  )
+  );
 };
 
 export default OAuth;
