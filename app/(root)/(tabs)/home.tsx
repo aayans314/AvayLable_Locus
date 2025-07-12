@@ -143,7 +143,7 @@ export default function Page() {
   }) => {
     setDestinationLocation(location);
 
-    router.push("/(root)/(tabs)/chat");
+    router.push("/(root)/find-ride");
   };
 
   useEffect(() => {

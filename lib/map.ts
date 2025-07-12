@@ -1,6 +1,6 @@
 import { Driver, MarkerData } from "@/types/type";
 
-const directionsAPI = process.env.EXPO_PUBLIC_DIRECTIONS_API_KEY;
+const directionsAPI = process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
 
 export const generateMarkersFromData = ({
   data,
@@ -12,10 +12,11 @@ export const generateMarkersFromData = ({
   userLongitude: number;
 }): MarkerData[] => {
   return data.map((driver) => {
-    const latOffset = (Math.random() - 0.5) * 0.01; // Random offset between -0.005 and 0.005
-    const lngOffset = (Math.random() - 0.5) * 0.01; // Random offset between -0.005 and 0.005
+    const latOffset = (Math.random() - 0.5) * 0.01;
+    const lngOffset = (Math.random() - 0.5) * 0.01;
 
     return {
+      driver_id: driver.id, // ✅ ensure unique key
       latitude: userLatitude + latOffset,
       longitude: userLongitude + lngOffset,
       title: `${driver.first_name} ${driver.last_name}`,
@@ -58,8 +59,8 @@ export const calculateRegion = ({
   const minLng = Math.min(userLongitude, destinationLongitude);
   const maxLng = Math.max(userLongitude, destinationLongitude);
 
-  const latitudeDelta = (maxLat - minLat) * 1.3; // Adding some padding
-  const longitudeDelta = (maxLng - minLng) * 1.3; // Adding some padding
+  const latitudeDelta = (maxLat - minLat) * 1.3;
+  const longitudeDelta = (maxLng - minLng) * 1.3;
 
   const latitude = (userLatitude + destinationLatitude) / 2;
   const longitude = (userLongitude + destinationLongitude) / 2;
@@ -94,28 +95,60 @@ export const calculateDriverTimes = async ({
     return;
 
   try {
-    const timesPromises = markers.map(async (marker) => {
-      const responseToUser = await fetch(
-        `https://maps.googleapis.com/maps/api/directions/json?origin=${marker.latitude},${marker.longitude}&destination=${userLatitude},${userLongitude}&key=${directionsAPI}`,
-      );
-      const dataToUser = await responseToUser.json();
-      const timeToUser = dataToUser.routes[0].legs[0].duration.value; // Time in seconds
+    const api = "https://maps.googleapis.com/maps/api/distancematrix/json";
 
-      const responseToDestination = await fetch(
-        `https://maps.googleapis.com/maps/api/directions/json?origin=${userLatitude},${userLongitude}&destination=${destinationLatitude},${destinationLongitude}&key=${directionsAPI}`,
-      );
-      const dataToDestination = await responseToDestination.json();
-      const timeToDestination =
-        dataToDestination.routes[0].legs[0].duration.value; // Time in seconds
+    // 1. Get driver → user times in a single batch request
+    const origins = markers
+      .map((m) => `${m.latitude},${m.longitude}`)
+      .join("|");
 
-      const totalTime = (timeToUser + timeToDestination) / 60; // Total time in minutes
-      const price = (totalTime * 0.5).toFixed(2); // Calculate price based on time
+    const driverRes = await fetch(
+      `${api}?origins=${origins}&destinations=${userLatitude},${userLongitude}&key=${directionsAPI}`
+    );
+    const driverData = await driverRes.json();
 
-      return { ...marker, time: totalTime, price };
+    // 2. Get user → destination time (shared for all)
+    const userRes = await fetch(
+      `${api}?origins=${userLatitude},${userLongitude}&destinations=${destinationLatitude},${destinationLongitude}&key=${directionsAPI}`
+    );
+    const userData = await userRes.json();
+
+    const userElement = userData.rows?.[0]?.elements?.[0];
+    const userToDestSec =
+      userData.status === "OK" && userElement?.status === "OK"
+        ? userElement.duration.value
+        : null;
+
+    // 3. Combine both travel times per driver
+    return markers.map((marker, idx) => {
+      const element = driverData.rows?.[idx]?.elements?.[0];
+
+      if (
+        driverData.status !== "OK" ||
+        !element ||
+        element.status !== "OK" ||
+        userToDestSec === null
+      ) {
+        return {
+          ...marker,
+          time: null,
+          price: null,
+        };
+      }
+
+      const totalMin = (element.duration.value + userToDestSec) / 60;
+      return {
+        ...marker,
+        time: totalMin,
+        price: (totalMin * 0.5).toFixed(2),
+      };
     });
-
-    return await Promise.all(timesPromises);
   } catch (error) {
     console.error("Error calculating driver times:", error);
+    return markers.map((marker) => ({
+      ...marker,
+      time: null,
+      price: null,
+    }));
   }
 };
