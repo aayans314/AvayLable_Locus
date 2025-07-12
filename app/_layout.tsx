@@ -6,8 +6,9 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import "../global.css";
-
+import { LogBox } from "react-native";
 SplashScreen.preventAutoHideAsync();
+LogBox.ignoreLogs(["Warning: ..."]);
 
 export default function RootLayout() {
   const [loaded] = useFonts({

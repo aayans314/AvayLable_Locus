@@ -45,7 +45,7 @@ const Payment = ({
 
   const initializePaymentSheet = async () => {
     const { error } = await initPaymentSheet({
-      merchantDisplayName: "Example, Inc.",
+      merchantDisplayName: "AvayLable-Locus",
       intentConfiguration: {
         mode: {
           amount: parseInt(amount) * 100,
@@ -143,7 +143,7 @@ const Payment = ({
 
           <Text className="text-md text-general-200 font-JakartaRegular text-center mt-3">
             Thank you for your booking. Your reservation has been successfully
-            placed. Please proceed with your trip.
+            placed. Go Mules.
           </Text>
 
           <CustomButton
