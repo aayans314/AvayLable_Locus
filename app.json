@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "NeighborHub Alpha",
-    "slug": "neighborhubalpha",
+    "name": "AvayLable Locus Alpha",
+    "slug": "avaylablelocusalpha",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,9 +9,9 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "images": "./assets/images/splash.png",
+      "image": "./assets/splash/splashscreen_logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#2f80ed"
+      "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true
