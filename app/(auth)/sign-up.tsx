@@ -72,7 +72,7 @@ const SignUp = () => {
 
         await setActive({ session: result.createdSessionId });
         setVerification({ ...verification, state: "success" });
-        router.replace("/(root)/(tabs)/home");
+        router.replace("/(root)/(tabs)/prehome");
       } else {
         setVerification({
           ...verification,
@@ -199,10 +199,10 @@ const SignUp = () => {
               You have successfully verified your account.
             </Text>
             <CustomButton
-              title="Browse Home"
+              title="Browse Options"
               onPress={() => {
                 setShowSuccessModal(false);
-                router.push("/(root)/(tabs)/home");
+                router.push("/(root)/(tabs)/prehome");
               }}
               className="mt-5"
             />

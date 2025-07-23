@@ -13,7 +13,7 @@ const OAuth = () => {
     const result = await googleOAuth(startOAuthFlow);
 
     if (result.code === "session_exists" || result.code === "success") {
-      router.replace("/(root)/(tabs)/home");
+      router.replace("/(root)/(tabs)/prehome");
     }
   };
 

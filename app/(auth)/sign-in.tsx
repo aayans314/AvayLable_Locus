@@ -28,7 +28,7 @@ const SignIn = () => {
 
       if (signInAttempt.status === "complete") {
         await setActive({ session: signInAttempt.createdSessionId });
-        router.replace("/(root)/(tabs)/home");
+        router.replace("/(root)/(tabs)/prehome");
       } else {
         console.warn("Further steps required:", signInAttempt.status);
       }
