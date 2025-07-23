@@ -51,7 +51,7 @@ const Layout = () => (
         title: "HomeSelector",
         headerShown: false,
         tabBarIcon: ({ focused }) => (
-          <TabIcon focused={focused} source={icons.home} />
+          <TabIcon focused={focused} source={icons.prehome} />
         ),
       }}
     />

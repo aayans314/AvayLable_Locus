@@ -34,6 +34,7 @@ import onboarding3 from "@/assets/images/onboarding3.png";
 import signin from "@/assets/images/signin.png";
 import signUpCar from "@/assets/images/signup-car.png";
 import splash from "@/assets/images/splash.png";
+import prehome from "@/assets/icons/prehome.png";
 
 export const images = {
   onboarding1,
@@ -67,6 +68,7 @@ export const icons = {
   marker,
   out,
   person,
+  prehome,
   pin,
   point,
   profile,
