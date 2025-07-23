@@ -46,6 +46,16 @@ const Layout = () => (
     }}
   >
     <Tabs.Screen
+      name="prehome"
+      options={{
+        title: "HomeSelector",
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <TabIcon focused={focused} source={icons.home} />
+        ),
+      }}
+    />
+    <Tabs.Screen
       name="home"
       options={{
         title: "Home",
