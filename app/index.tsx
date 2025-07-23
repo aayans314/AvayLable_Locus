@@ -14,11 +14,9 @@ const Home = () => {
   }
 
   if (isSignedIn) {
-    console.log("signed in");
     return <Redirect href="/(root)/(tabs)/prehome" />;
   }
 
-  console.log("signed out");
   return <Redirect href="/(auth)/welcome" />;
 };
 
