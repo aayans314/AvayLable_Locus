@@ -82,24 +82,24 @@ export const icons = {
 export const onboarding = [
   {
     id: 1,
-    title: "Your skilled network is just a tap away!",
+    title: "Your Skilled Network Is Just a Tap Away!",
     description:
-      "Your journey begins with Neighborhub. Find your ideal help effortlessly.",
-    image: images.onboarding1,
+      "Start your journey with AvayLable. Discover trusted student services tailored to your campus needs.",
+    image: images.onboarding1, // Suggested: friendly student using phone
   },
   {
     id: 2,
-    title: "Best car in your hands with Neighborhub Ryde",
+    title: "Skills at Your Fingertips with AvayLable",
     description:
-      "Discover the convenience of finding your perfect ride with Neighborhub Ryde",
-    image: images.onboarding2,
+      "Browse and book help from fellow students — from haircuts to tutoring, and everything in between.",
+    image: images.onboarding2, // Suggested: C
   },
   {
     id: 3,
-    title: "Your ride, your way. Let's go!",
+    title: "Your Campus, Your Way — Let’s Go!",
     description:
-      "Enter your destination, sit back, and let us take care of the rest.",
-    image: images.onboarding3,
+      "Submit your task and relax. Whether it’s a ride or a helping hand, we’ve got you covered.",
+    image: images.onboarding3, // Suggested: relaxed student watching phone with thumbs up
   },
 ];
 
