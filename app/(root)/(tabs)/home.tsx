@@ -233,7 +233,6 @@ export default function Page() {
                     {showSat ? "Normal view" : "Satellite view"}
                   </Text>
                 </TouchableOpacity>
-                <Text>real legend</Text>
               </View>
 
               <View className="w-full h-[300px] rounded-2xl overflow-hidden">
