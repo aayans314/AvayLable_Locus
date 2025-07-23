@@ -20,6 +20,14 @@ const SignIn = () => {
   const onSignInPress = async () => {
     if (!isLoaded) return;
 
+    if (!form.email.endsWith("@colby.edu")) {
+      Alert.alert(
+        "Invalid Email",
+        "Only @colby.edu email addresses are allowed.",
+      );
+      return;
+    }
+
     try {
       const signInAttempt = await signIn.create({
         identifier: form.email,

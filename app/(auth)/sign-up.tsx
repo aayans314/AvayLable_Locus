@@ -32,6 +32,14 @@ const SignUp = () => {
   const onSignUpPress = async () => {
     if (!isLoaded) return;
 
+    if (!form.email.endsWith("@colby.edu")) {
+      Alert.alert(
+        "Invalid Email",
+        "You must use a @colby.edu email to sign up.",
+      );
+      return;
+    }
+
     try {
       await signUp.create({
         emailAddress: form.email,

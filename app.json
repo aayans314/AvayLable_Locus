@@ -1,33 +1,57 @@
 {
   "expo": {
-    "name": "AvayLable Locus Alpha",
-    "slug": "avaylablelocusalpha",
+    "name": "AvayLable  Alpha",
+    "slug": "avaylablealpha",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "uberclone",
+    "scheme": "avaylablelocusalpha",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "splash": {
       "image": "./assets/splash/splashscreen_logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.neighborhub11.avaylablealpha",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses location to show nearby services and navigation.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses location to show nearby services and navigation.",
+        "NSCameraUsageDescription": "This app uses camera to take profile pictures.",
+        "NSPhotoLibraryUsageDescription": "This app uses photo library to select profile pictures."
+      }
     },
     "android": {
+      "versionCode": 1,
+      "package": "com.neighborhub11.avaylablealpha",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
       "config": {
         "googleMaps": {
-          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+          "apiKey": "YOUR_PRODUCTION_GOOGLE_MAPS_API_KEY"
         }
       },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "package": "com.neighborhub11.uberclone"
+      "edgeToEdgeEnabled": true
     },
     "web": {
       "bundler": "metro",
@@ -38,9 +62,15 @@
       [
         "expo-router",
         {
-          "origin": "https://uber.com/"
+          "origin": "https://avaylable.com/"
         }
-      ]
+      ],
+      [
+        "@react-native-google-signin/google-signin"
+      ],
+      "expo-location",
+      "expo-camera",
+      "expo-image-picker"
     ],
     "experiments": {
       "typedRoutes": true
@@ -50,6 +80,12 @@
       "eas": {
         "projectId": "96ea1fe4-ba89-41eb-97ee-4601879e3715"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/96ea1fe4-ba89-41eb-97ee-4601879e3715"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
