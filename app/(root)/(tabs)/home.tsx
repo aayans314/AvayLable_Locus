@@ -201,25 +201,30 @@ export default function Page() {
         )}
         ListHeaderComponent={() => (
           <>
-            <View className="flex flex-row items-center justify-between my-5">
+            <View className="flex flex-col gap-y-1 my-5">
+              <Text className="text-xl capitalize font-JakartaExtraBold text-gray-400">
+                AvayLable Locus Rides
+              </Text>
               <Text className="text-2xl capitalize font-JakartaExtraBold">
-                Welcome{" "}
+                Welcome,{" "}
                 {user?.firstName ||
                   user?.emailAddresses?.[0]?.emailAddress?.split("@")[0]}{" "}
               </Text>
-              <TouchableOpacity
-                onPress={handleSignout}
-                className="justify-center items-center w-10 h-10 rounded-full bg-white"
-              >
-                <SignOutButton />
-              </TouchableOpacity>
             </View>
+
+            <TouchableOpacity
+              onPress={handleSignout}
+              className="absolute top-5 right-5 justify-center items-center w-10 h-10 rounded-full bg-white"
+            >
+              <SignOutButton />
+            </TouchableOpacity>
 
             <GoogleTextInput
               icon={icons.search}
               containerStyle="bg-white shadow-md shadow-neutral-300"
               handlePress={handleDestinationPress}
             />
+
             <>
               <View className="flex-row items-center justify-between mt-5 mb-3">
                 <Text className="text-xl font-JakartaBold">

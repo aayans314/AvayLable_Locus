@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter } from "expo-router";
 
 import noResult from "@/assets/images/no-result.png"; // adjust path if needed
+import campus from "@/assets/images/campus.png"; // campus image import
+
 const PreHome = () => {
   const router = useRouter();
   const [message, setMessage] = useState("");
@@ -21,6 +23,13 @@ const PreHome = () => {
 
   return (
     <View className="flex-1 bg-gray-100 items-center justify-center px-6">
+      {/* Campus Image */}
+      <Image
+        source={campus}
+        className="w-64 h-40 mb-6 rounded-xl"
+        resizeMode="cover"
+      />
+      
       <Text className="text-3xl font-bold text-gray-800 mb-2">AvayLable @ Colby</Text>
       <Text className="text-lg text-gray-500 mb-8">Looking for a service?</Text>
 
