@@ -89,14 +89,14 @@ export const onboarding = [
   },
   {
     id: 2,
-    title: "Skills at Your Fingertips with AvayLable",
+    title: "Support at Your Fingertips with AvayLable",
     description:
       "Browse and book help from fellow students — from haircuts to tutoring, and everything in between.",
     image: images.onboarding2, // Suggested: C
   },
   {
     id: 3,
-    title: "Your Campus, Your Way — Let’s Go!",
+    title: "Create an account with your college email to proceed",
     description:
       "Submit your task and relax. Whether it’s a ride or a helping hand, we’ve got you covered.",
     image: images.onboarding3, // Suggested: relaxed student watching phone with thumbs up
