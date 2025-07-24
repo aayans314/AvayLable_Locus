@@ -38,21 +38,21 @@ const PreHome = () => {
           className="bg-white py-4 px-6 rounded-xl shadow items-center mb-6"
           onPress={() => handleComingSoon("💇 Haircut")}
         >
-          <Text className="text-xl text-gray-700 font-medium">💇 Haircut</Text>
+          <Text className="text-xl text-gray-700 font-medium">💇 Get an Haircut</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           className="bg-white py-4 px-6 rounded-xl shadow items-center mb-6"
           onPress={() => router.push("/home")}
         >
-          <Text className="text-xl text-gray-700 font-medium">🚗 Ride</Text>
+          <Text className="text-xl text-gray-700 font-medium">🚗 Find Rides</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           className="bg-white py-4 px-6 rounded-xl shadow items-center"
           onPress={() => handleComingSoon("📚 Tutor")}
         >
-          <Text className="text-xl text-gray-700 font-medium">📚 Tutor</Text>
+          <Text className="text-xl text-gray-700 font-medium">📚 AvayLable Tutors</Text>
         </TouchableOpacity>
       </View>
 
