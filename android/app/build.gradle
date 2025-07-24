@@ -87,9 +87,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.neighborhub11.uberclone'
+    namespace 'com.neighborhub11.avaylablealpha'
     defaultConfig {
-        applicationId 'com.neighborhub11.uberclone'
+        applicationId 'com.neighborhub11.avaylablealpha'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

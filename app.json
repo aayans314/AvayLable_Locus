@@ -36,15 +36,15 @@
       "versionCode": 1,
       "package": "com.neighborhub11.avaylablealpha",
       "permissions": [
-        "ACCESS_FINE_LOCATION",
-        "ACCESS_COARSE_LOCATION",
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
       ],
       "config": {
         "googleMaps": {
-          "apiKey": "YOUR_PRODUCTION_GOOGLE_MAPS_API_KEY"
+          "apiKey": "AIzaSyBP5Pw0wbGjXMjYQTO4wk5GRZY3iyMFXJg"
         }
       },
       "adaptiveIcon": {
@@ -68,7 +68,15 @@
       [
         "@react-native-google-signin/google-signin"
       ],
+      [
       "expo-location",
+      {
+        "locationAlwaysAndWhenInUsePermission": "This app uses location to show nearby services and navigation.",
+        "locationWhenInUsePermission": "This app uses location to show nearby services and navigation.",
+        "isIosBackgroundLocationEnabled": false,
+        "isAndroidBackgroundLocationEnabled": false
+      }
+    ],
       "expo-camera",
       "expo-image-picker"
     ],

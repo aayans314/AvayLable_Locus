@@ -150,8 +150,8 @@ export default function Page() {
   useEffect(() => {
     const requestLocation = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-
       if (status !== "granted") {
+        console.log("its this isnt it");
         setHasPermissions(false);
         return;
       }
